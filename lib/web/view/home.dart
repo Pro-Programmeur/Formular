@@ -1,9 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-
-
-
+import 'package:go_router/go_router.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
@@ -14,60 +12,90 @@ class Home extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-
-            title: Row(
+        backgroundColor: Colors.deepOrange[300],
+        title: Row(
+          children: [
+            Image.asset(
+              'asstes/logo2.png',
+              width: 50.0,
+            ),
+            SizedBox(
+              width: 5.0,
+            ),
+            Image.asset(
+              'asstes/logo1.png',
+              width: 100.0,
+            ),
+          ],
+        ),
+        actions: [
+          TextButton(
+            onPressed: () {
+              context.go('/acceuil');
+            },
+            child: const Row(
               children: [
-                Image.asset('asstes/logo2.png',
-                  width: 50.0,),
-                SizedBox(width: 5.0,),
-                Image.asset('asstes/logo1.png',
-                width: 100.0,),
-
+                Icon(Icons.home),
+                Text('Accueil'),
+                SizedBox(
+                  width: 50.0,
+                ),
               ],
             ),
-            actions: [
-              const Row(
-                children: [
-                  Icon(Icons.home),
-                  Text('Accueil'),
-                  SizedBox(width: 50.0,),
-                ],
-              ),
-              const Row(
-                children: [
-
-                  Text('Formulaire'),
-                  SizedBox(width: 50.0,),
-                ],
-              ),
-              const Row(
-                children: [
-
-                  Text('Configuration'),
-                  SizedBox(width: 50.0,),
-                ],
-              ),
-              const Row(
-                children: [
-
-                  Text('Contact'),
-                  SizedBox(width: 50.0,),
-                ],
-              ),
-              const Row(
-                children: [
-
-                  Text('About'),
-                  SizedBox(width: 50.0,),
-                ],
-              ),
-
-              IconButton(onPressed: (){}, icon: Icon(Icons.search_outlined)),
-              SizedBox(width: 10.0,)
-
-
-            ],
-
+          ),
+          TextButton(
+            onPressed: () {
+              context.go('/formulaire');
+            },
+            child: const Row(
+              children: [
+                Text('Formulaire'),
+                SizedBox(
+                  width: 50.0,
+                ),
+              ],
+            ),
+          ),
+          TextButton(
+            onPressed: () {
+              context.go('/configuration');
+            },
+            child: const Row(
+              children: [
+                Text('Configuration'),
+                SizedBox(
+                  width: 50.0,
+                ),
+              ],
+            ),
+          ),
+          TextButton(
+            onPressed: () {},
+            child: const Row(
+              children: [
+                Text('Contact'),
+                SizedBox(
+                  width: 50.0,
+                ),
+              ],
+            ),
+          ),
+          TextButton(
+            onPressed: () {},
+            child: const Row(
+              children: [
+                Text('About'),
+                SizedBox(
+                  width: 50.0,
+                ),
+              ],
+            ),
+          ),
+          IconButton(onPressed: () {}, icon: Icon(Icons.search_outlined)),
+          const SizedBox(
+            width: 10.0,
+          )
+        ],
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -77,7 +105,7 @@ class Home extends StatelessWidget {
                 margin: const EdgeInsets.only(left: 70.0),
                 padding: const EdgeInsets.all(50.0),
                 width: 1000.0,
-                height: 1200.0,
+                height: 1250.0,
                 decoration: BoxDecoration(),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -322,12 +350,32 @@ class Home extends StatelessWidget {
                               width: 50.0,
                               color: Colors.lightGreenAccent,
                               child: const Center(child: Text('5')),
-                            )
+                            ),
                           ],
                         )
                       ],
                     ),
-                    const SizedBox(height: 50.0,),
+                    Row(
+                      children: [
+                        Container(
+                          color: Colors.deepPurpleAccent,
+                            width: 320.0,
+                            margin: EdgeInsets.only(
+                                top: 10.0, left: 580.0,),
+                            padding: EdgeInsets.all(
+                              5.0),
+                            child: Center(
+                              child: Text('4.75',
+                              style: TextStyle(
+                                fontSize: 20.0,
+                                fontFamily: 'Dawe2'
+                              ),),
+                            ))
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 10.0,
+                    ),
                     Expanded(
                       child: Row(
                         children: [
@@ -443,20 +491,19 @@ class Home extends StatelessWidget {
                           Column(
                             children: [
                               Container(
-                                padding: const EdgeInsets.only(left: 270.0,
-                                top: 10.0,
-                                bottom: 10.0),
-                              width: 600,
+                                padding: const EdgeInsets.only(
+                                    left: 270.0, top: 10.0, bottom: 10.0),
+                                width: 600,
                                 decoration: BoxDecoration(
                                   border: Border.all(color: Colors.black),
                                   borderRadius: BorderRadius.circular(6.0),
                                 ),
-                                child: const Text('INTITULE',
-                                style: TextStyle(
-
-                                  letterSpacing: 5.0,
-                                  fontWeight: FontWeight.bold
-                                ),),
+                                child: const Text(
+                                  'INTITULE',
+                                  style: TextStyle(
+                                      letterSpacing: 5.0,
+                                      fontWeight: FontWeight.bold),
+                                ),
                               ),
                               const SizedBox(
                                 height: 20.0,
@@ -557,7 +604,9 @@ class Home extends StatelessWidget {
                                     borderRadius: BorderRadius.circular(6.0),
                                     color: Colors.grey,
                                   ),
-                                  child: const Text('EVALUATION',),
+                                  child: const Text(
+                                    'EVALUATION',
+                                  ),
                                 ),
                                 const SizedBox(
                                   height: 30.0,
@@ -669,25 +718,27 @@ class Home extends StatelessWidget {
                         ],
                       ),
                     ),
-
                     Row(
                       children: [
                         const Expanded(
                           child: Column(
                             children: [
                               Text("Nombre d'auditeurs présents : "),
-                              SizedBox(height: 20.0,),
+                              SizedBox(
+                                height: 20.0,
+                              ),
                               Text("Nombre de reponses "),
                             ],
                           ),
                         ),
                         Expanded(
                           child: Container(
-                          
                             child: Column(
                               children: [
                                 Text("13"),
-                                SizedBox(height: 20.0,),
+                                SizedBox(
+                                  height: 20.0,
+                                ),
                                 Text("4")
                               ],
                             ),
@@ -697,22 +748,22 @@ class Home extends StatelessWidget {
                           child: Container(
                             child: Column(
                               children: [
-
                                 Text('31%'),
-                                SizedBox(height: 20.0,),
-                              Text("de taux de participation"),
+                                SizedBox(
+                                  height: 20.0,
+                                ),
+                                Text("de taux de participation"),
                               ],
                             ),
                           ),
                         ),
                       ],
                     ),
-
                     Container(
                       padding: EdgeInsets.all(10.0),
                       decoration: BoxDecoration(
                         border: Border.all(),
-                          borderRadius: BorderRadius.circular(10.0),
+                        borderRadius: BorderRadius.circular(10.0),
                       ),
                       child: Row(
                         children: [
@@ -720,42 +771,49 @@ class Home extends StatelessWidget {
                             child: Column(
                               children: [
                                 Text('REMARQUES OU OBSERVATIONS :'),
-                                SizedBox(height: 20.0,),
+                                SizedBox(
+                                  height: 20.0,
+                                ),
                                 Text('APPRECIATION GENERALE'),
                               ],
                             ),
                           ),
                           Expanded(
                             child: Container(
-                              padding: EdgeInsets.only(
-                                top: 15.0,
-                                left: 30.0
-                              ),
+                              padding: EdgeInsets.only(top: 15.0, left: 30.0),
                               decoration: BoxDecoration(
                                 border: Border.all(),
                                 borderRadius: BorderRadius.circular(10.0),
-
                               ),
                               child: const Column(
                                 children: [
-                                  Row(children :[Text('1     Commentaire(s)')]),
-                                  SizedBox(height: 20.0,),
+                                  Row(children: [Text('1     Commentaire(s)')]),
+                                  SizedBox(
+                                    height: 20.0,
+                                  ),
                                   Row(
                                     children: [
-
                                       Text('Utile'),
-                                      SizedBox(width: 20.0,),
+                                      SizedBox(
+                                        width: 20.0,
+                                      ),
                                       Text('Peu utile'),
-                                      SizedBox(width: 20.0,),
+                                      SizedBox(
+                                        width: 20.0,
+                                      ),
                                       Text('Pas utile')
                                     ],
                                   ),
                                   Row(
                                     children: [
                                       Text('4'),
-                                      SizedBox(width: 60.0,),
+                                      SizedBox(
+                                        width: 60.0,
+                                      ),
                                       Text('0'),
-                                      SizedBox(width: 75.0,),
+                                      SizedBox(
+                                        width: 75.0,
+                                      ),
                                       Text('0')
                                     ],
                                   ),
@@ -763,14 +821,13 @@ class Home extends StatelessWidget {
                               ),
                             ),
                           ),
-                          SizedBox(width: 5.0,),
+                          SizedBox(
+                            width: 5.0,
+                          ),
                           Expanded(
                             child: Container(
                               height: 98.0,
-                              padding: EdgeInsets.only(
-                                top: 13.0,
-                                left: 10.0
-                              ),
+                              padding: EdgeInsets.only(top: 13.0, left: 10.0),
                               decoration: BoxDecoration(
                                 border: Border.all(),
                                 borderRadius: BorderRadius.circular(10.0),
@@ -778,7 +835,9 @@ class Home extends StatelessWidget {
                               child: Column(
                                 children: [
                                   Text('Voir les details'),
-                                  SizedBox(height: 20.0,),
+                                  SizedBox(
+                                    height: 20.0,
+                                  ),
                                   Text('Ce cours a été jugé :'),
                                   Text('Utile')
                                 ],
@@ -790,64 +849,77 @@ class Home extends StatelessWidget {
                     )
                   ],
                 )),
-
             Container(
-              padding: EdgeInsets.only(
-                  top: 20.0,
-                  left: 50,
-                  bottom: 30),
+              padding: EdgeInsets.only(top: 20.0, left: 50, bottom: 30),
               color: Colors.black,
               child: Row(
                 children: [
-                  const Column(crossAxisAlignment: CrossAxisAlignment.start,
+                  const Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text('Qui sommes-nous ?',
-                      style: TextStyle(
-                        color: Colors.white
-                      ),),
-                      SizedBox(height: 10.0,),
-                      Text('Pourquoi nous ?',
-                        style: TextStyle(
-                            color: Colors.white
-                        ),),
-                      SizedBox(height: 10.0,),
-                      Text('Depuis Octobre 1974',
-                        style: TextStyle(
-                            color: Colors.white
-                        ),),
-                      SizedBox(height: 10.0,),
-                      Text('Pour qui nous Travaillons ?',
-                        style: TextStyle(
-                            color: Colors.white
-                        ),),
+                      Text(
+                        'Qui sommes-nous ?',
+                        style: TextStyle(color: Colors.white),
+                      ),
+                      SizedBox(
+                        height: 10.0,
+                      ),
+                      Text(
+                        'Pourquoi nous ?',
+                        style: TextStyle(color: Colors.white),
+                      ),
+                      SizedBox(
+                        height: 10.0,
+                      ),
+                      Text(
+                        'Depuis Octobre 1974',
+                        style: TextStyle(color: Colors.white),
+                      ),
+                      SizedBox(
+                        height: 10.0,
+                      ),
+                      Text(
+                        'Pour qui nous Travaillons ?',
+                        style: TextStyle(color: Colors.white),
+                      ),
                     ],
                   ),
-                  const SizedBox(width: 250.0,),
-                  const Column(crossAxisAlignment: CrossAxisAlignment.start,
+                  const SizedBox(
+                    width: 250.0,
+                  ),
+                  const Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text('LE CNAM ',
-                        style: TextStyle(
-                            color: Colors.white
-                        ),),
-                      SizedBox(height: 10.0,),
-                      Text('Pour vous ...',
-                        style: TextStyle(
-                            color: Colors.white
-                        ),),
-                      SizedBox(height: 10.0,),
-                      Text('A propos de !',
-                        style: TextStyle(
-                            color: Colors.white
-                        ),),
-                      SizedBox(height: 10.0,),
-                      Text('Contactez-nous',
-                        style: TextStyle(
-                            color: Colors.white
-                        ),),
+                      Text(
+                        'LE CNAM ',
+                        style: TextStyle(color: Colors.white),
+                      ),
+                      SizedBox(
+                        height: 10.0,
+                      ),
+                      Text(
+                        'Pour vous ...',
+                        style: TextStyle(color: Colors.white),
+                      ),
+                      SizedBox(
+                        height: 10.0,
+                      ),
+                      Text(
+                        'A propos de !',
+                        style: TextStyle(color: Colors.white),
+                      ),
+                      SizedBox(
+                        height: 10.0,
+                      ),
+                      Text(
+                        'Contactez-nous',
+                        style: TextStyle(color: Colors.white),
+                      ),
                     ],
                   ),
-
-                  const SizedBox(width: 250.0,),
+                  const SizedBox(
+                    width: 250.0,
+                  ),
                   Column(
                     children: [
                       Container(
@@ -859,10 +931,8 @@ class Home extends StatelessWidget {
                           ),
                         ),
                       ),
-
                     ],
                   ),
-
                 ],
               ),
             ),
@@ -872,20 +942,28 @@ class Home extends StatelessWidget {
                 children: [
                   Expanded(
                     child: Divider(
-                      thickness:4.0,
+                      thickness: 4.0,
                       endIndent: 15.0,
                       color: Colors.white,
                     ),
                   ),
-                  Image.asset('asstes/logo2.png',
-                    width: 50.0,),
-                  SizedBox(width: 5.0,),
-                  Image.asset('asstes/logo1.png',
-                    width: 100.0,),
-                  SizedBox(width: 15.0,),
-                  Expanded(
+                  Image.asset(
+                    'asstes/logo2.png',
+                    width: 50.0,
+                  ),
+                  SizedBox(
+                    width: 5.0,
+                  ),
+                  Image.asset(
+                    'asstes/logo1.png',
+                    width: 100.0,
+                  ),
+                  SizedBox(
+                    width: 15.0,
+                  ),
+                  const Expanded(
                     child: Divider(
-                      thickness:4.0,
+                      thickness: 4.0,
                       color: Colors.white,
                     ),
                   ),

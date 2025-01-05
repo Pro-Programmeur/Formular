@@ -1,48 +1,106 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class appBar extends StatelessWidget {
+class appBar extends StatefulWidget {
+  @override
+  State<appBar> createState() => _AppBAR();
 
 
+}
+class _AppBAR extends State<appBar>{
   @override
   Widget build(BuildContext context) {
-    // TODO: implement createState
+    // TODO: implement build
     return AppBar(
-        title: Text('LE SITE OFFICILLE DU CNAM'),
-        actions: [
-          Row(
-            children: [
-              Icon(Icons.home),
-              Text('Accueil')
-            ],
+      backgroundColor: Colors.deepOrange[300],
+      title: Row(
+        children: [
+          Image.asset(
+            'asstes/logo2.png',
+            width: 50.0,
           ),
-          Row(
-            children: [
-              Icon(Icons.home),
-              Text('Formulaire')
-            ],
+          SizedBox(
+            width: 5.0,
           ),
-          Row(
-            children: [
-              Icon(Icons.home),
-              Text('Configuration')
-            ],
+          Image.asset(
+            'asstes/logo1.png',
+            width: 100.0,
           ),
-          Row(
-            children: [
-              Icon(Icons.home),
-              Text('Contact')
-            ],
-          ),
-          Row(
-            children: [
-              Icon(Icons.home),
-              Text('About')
-            ],
-          )
         ],
-      );
+      ),
+      actions: [
+        TextButton(
+          onPressed: () {},
+          style: ElevatedButton.styleFrom(
 
+            backgroundColor: Colors.deepOrange[300],
+          ),
+          child: const Row(
+            children: [
+              Icon(Icons.home),
+              Text('Accueil'),
+              SizedBox(
+                width: 50.0,
+              ),
+            ],
+          ),
+        ),
+
+        TextButton(
+          onPressed: () {},
+          child:const Row(
+            children: [
+              Text('Formulaire'),
+              SizedBox(
+                width: 50.0,
+              ),
+            ],
+          ),
+        ),
+        TextButton(
+          onPressed: () {
+            context.go('/configuration');
+          },
+          child:const Row(
+            children: [
+              Text('Configuration'),
+              SizedBox(
+                width: 50.0,
+              ),
+            ],
+          ),
+        ),
+        TextButton(
+          onPressed: () {},
+          child:const Row(
+            children: [
+              Text('Contact'),
+              SizedBox(
+                width: 50.0,
+              ),
+            ],
+          ),
+        ),
+        TextButton(
+          onPressed: () {},
+          child:const Row(
+            children: [
+              Text('About'),
+              SizedBox(
+                width: 50.0,
+              ),
+            ],
+          ),
+        ),
+
+
+
+
+        IconButton(onPressed: () {}, icon: Icon(Icons.search_outlined)),
+        SizedBox(
+          width: 10.0,
+        )
+      ],
+    );
   }
-
 }

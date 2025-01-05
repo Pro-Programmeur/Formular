@@ -1,0 +1,22 @@
+CREATE TABLE `db_ab13c6_formula`.`config` (`code_ue` VARCHAR(30) NULL DEFAULT NULL COMMENT 'id de configuration' , 
+`formateur` TEXT NOT NULL , `intitule` TEXT NOT NULL , 
+`nbr_etudiant` INT NOT NULL , `mail_resp` VARCHAR(200) NOT NULL , 
+`acces_synth` INT NOT NULL , `date_crea` DATE NOT NULL , 
+`date_cloture` DATE NOT NULL ) ENGINE = InnoDB COMMENT = 'configuration';
+
+
+connexion: 
+ASP.NET
+
+"Server=MYSQL1001.site4now.net;
+Database=db_ab13c6_formula;
+Uid=ab13c6_formula;
+Pwd=N84995711n"
+
+
+PHP :
+
+"Driver={MySQL ODBC 8.0 UNICODE Driver};Server=MYSQL1001.site4now.net;Database=db_ab13c6_formula;Uid=ab13c6_formula;Password=YOUR_DB_PASSWORD"
+
+lien server : https://member5.smarterasp.net/cp/cp_screen
+
